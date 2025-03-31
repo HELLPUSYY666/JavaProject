@@ -4,10 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MangaApiApplication {
+public class AnimeApiApplication {
     public static void main(String[] args) {
-        SpringApplication.run(MangaApiApplication.class, args);
-        //imgay
+        SpringApplication.run(AnimeApiApplication.class, args);
     }
-
 }
