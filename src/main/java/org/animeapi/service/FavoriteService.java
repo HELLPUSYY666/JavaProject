@@ -47,3 +47,4 @@ public class FavoriteService {
                 .collect(Collectors.toList());
     }
 }
+
