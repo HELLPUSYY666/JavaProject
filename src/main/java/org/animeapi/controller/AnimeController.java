@@ -1,43 +1,38 @@
 package org.animeapi.controller;
 
 import org.animeapi.model.Anime;
-import org.animeapi.repository.AnimeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.animeapi.service.AnimeService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/anime")
+@RequestMapping("/anime")
 public class AnimeController {
+    private final AnimeService animeService;
 
-    @Autowired
-    private AnimeRepository animeRepository;
+    public AnimeController(AnimeService animeService) {
+        this.animeService = animeService;
+    }
 
     @GetMapping
     public List<Anime> getAllAnime() {
-        return animeRepository.findAllAnime();
+        return animeService.getAllAnime();
     }
 
     @GetMapping("/{id}")
     public Optional<Anime> getAnimeById(@PathVariable Integer id) {
-        return animeRepository.findAnimeById(id);
+        return animeService.getAnimeById(id);
     }
 
     @PostMapping
     public Anime createAnime(@RequestBody Anime anime) {
-        return animeRepository.save(anime);
-    }
-
-    @PutMapping("/{id}")
-    public Anime updateAnime(@PathVariable Integer id, @RequestBody Anime anime) {
-        anime.setAnimeId(id);
-        return animeRepository.save(anime);
+        return animeService.saveAnime(anime);
     }
 
     @DeleteMapping("/{id}")
     public void deleteAnime(@PathVariable Integer id) {
-        animeRepository.deleteById(id);
+        animeService.deleteAnime(id);
     }
 }
