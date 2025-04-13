@@ -49,14 +49,31 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- Swagger UI (OpenAPI) -->
+        <!-- Swagger UI -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>1.7.0</version>
         </dependency>
 
-        <!-- Test -->
+        <!-- Selenium -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.20.0</version>
+        </dependency>
+
+        <!-- WebDriver для Chrome -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.8.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+        <!-- Тесты -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

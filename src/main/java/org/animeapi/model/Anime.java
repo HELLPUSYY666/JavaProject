@@ -17,10 +17,10 @@ public class Anime {
     @Column(nullable = false, length = 255)
     private String photoUrl;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 255)
     private String animeName;
 
-    @Column(length = 50)
+    @Column(length = 255)
     private String animeGenre;
 
     private Integer animeRating;

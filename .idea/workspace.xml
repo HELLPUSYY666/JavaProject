@@ -4,33 +4,97 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="904415ab-039a-4b94-b428-b96b71d32a2b" name="Changes" comment="Dev -2" />
+    <list default="true" id="904415ab-039a-4b94-b428-b96b71d32a2b" name="Changes" comment="Dev -2">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/parser/AnimeParserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V2__extend_fields.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/AnimeApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/AnimeApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/model/Anime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/model/Anime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/animeapi/AnimeApiApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/animeapi/AnimeApiApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/animeapi/controller/AnimeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/animeapi/controller/AnimeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/animeapi/repository/CommentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/animeapi/repository/CommentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/animeapi/repository/FavoriteRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/animeapi/repository/FavoriteRepository.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="branch2" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;HELLPUSYY666&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/HELLPUSYY666/JavaProject&quot;,
+    &quot;accountId&quot;: &quot;aafbb313-59d6-4222-9d8d-074e5aa82e7e&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;HELLPUSYY666&quot;,
+    &quot;repository&quot;: &quot;JavaProject&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2v2tuf20sWwZOa2JxTUMF0wCkPF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.AnimeApiApplication.executor": "Run",
+    "Spring Boot.MangaApiApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "zakariya-parser",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/smoke/Desktop/java/JavaProject",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -50,7 +114,14 @@
       <recent name="C:\Users\smoke\Desktop\java\JavaProject\.idea" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.AnimeApiApplication">
+    <configuration name="AnimeApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="mc" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.animeapi.AnimeApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MangaApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="mc" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.animeapi.MangaApiApplication" />
@@ -58,6 +129,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.117" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.117" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -68,6 +147,8 @@
       <option name="presentableId" value="Default" />
       <updated>1743355220522</updated>
       <workItem from="1743355221644" duration="1660000" />
+      <workItem from="1743939742379" duration="600000" />
+      <workItem from="1744544801603" duration="4481000" />
     </task>
     <task id="LOCAL-00001" summary="Dev -2">
       <option name="closed" value="true" />
@@ -104,6 +185,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Dev -2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dev -2" />
+    <MESSAGE value="full favorite" />
+    <option name="LAST_COMMIT_MESSAGE" value="full favorite" />
   </component>
 </project>
