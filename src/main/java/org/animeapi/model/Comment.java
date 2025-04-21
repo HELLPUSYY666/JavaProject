@@ -16,7 +16,7 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private MyUser myUser;
 
     @ManyToOne
     @JoinColumn(name = "anime_id", nullable = false)

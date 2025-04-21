@@ -2,7 +2,7 @@ package org.animeapi.service;
 
 import org.animeapi.model.Anime;
 import org.animeapi.model.Comment;
-import org.animeapi.model.User;
+import org.animeapi.model.MyUser;
 import org.animeapi.repository.AnimeRepository;
 import org.animeapi.repository.CommentRepository;
 import org.animeapi.repository.UserRepository;
@@ -23,10 +23,10 @@ public class CommentService {
     }
 
     public Comment createComment(Integer userId, Integer animeId, String content, Integer rate) {
-        User user = userRepository.findById(userId).orElseThrow();
+        MyUser myUser = userRepository.findById(userId).orElseThrow();
         Anime anime = animeRepository.findById(animeId).orElseThrow();
 
-        Comment comment = new Comment(null, user, anime, content, rate);
+        Comment comment = new Comment(null, myUser, anime, content, rate);
         return commentRepository.save(comment);
     }
 

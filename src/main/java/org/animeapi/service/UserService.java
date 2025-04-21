@@ -1,33 +1,40 @@
-// User Service
 package org.animeapi.service;
 
-import org.animeapi.model.User;
-import org.animeapi.repository.UserRepository;
-import org.springframework.stereotype.Service;
-import java.util.List;
 import java.util.Optional;
 
+import org.animeapi.model.MyUser;
+import org.animeapi.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import lombok.AllArgsConstructor;
+
 @Service
-public class UserService {
-    private final UserRepository userRepository;
+@AllArgsConstructor
+public class UserService implements UserDetailsService {
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    @Autowired
+    private UserRepository repository;
+
+    @Override
+    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+        Optional<MyUser> user = repository.findUserByLogin(login);
+        if (user.isPresent()) {
+            var userObj = user.get();
+            return User.builder()
+                    .username(userObj.getLogin())
+                    .password(userObj.getPassword())
+                    .build();
+        }
+        else{
+            throw new UsernameNotFoundException(login);
+        }
     }
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
 
-    public Optional<User> getUserById(Integer id) {
-        return userRepository.findById(id);
-    }
 
-    public User saveUser(User user) {
-        return userRepository.save(user);
-    }
-
-    public void deleteUser(Integer id) {
-        userRepository.deleteById(id);
-    }
 }
