@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="904415ab-039a-4b94-b428-b96b71d32a2b" name="Changes" comment="Dev -2">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/model/MyUser.java" afterDir="false" />
+    <list default="true" id="904415ab-039a-4b94-b428-b96b71d32a2b" name="Changes" comment="DEMO LOGIN SIGNIN(not tested)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/model/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/model/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/model/Favorite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/model/Favorite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/controller/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/controller/PageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/service/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/service/FavoriteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/service/FavoriteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +21,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -59,22 +56,25 @@
     &quot;assignee&quot;: &quot;HELLPUSYY666&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/HELLPUSYY666/JavaProject.git",
-    "accountId": "f11eb5cb-f290-414e-80c3-ca6f60cc7d2b"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/HELLPUSYY666/JavaProject.git&quot;,
+    &quot;accountId&quot;: &quot;f11eb5cb-f290-414e-80c3-ca6f60cc7d2b&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "HELLPUSYY666",
-    "repository": "JavaProject"
+    &quot;owner&quot;: &quot;HELLPUSYY666&quot;,
+    &quot;repository&quot;: &quot;JavaProject&quot;
   }
-}]]></component>
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -97,7 +97,8 @@
     "Spring Boot.AnimeApiApplication.executor": "Run",
     "Spring Boot.MangaApiApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "login-demo",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/admin/IdeaProjects/springbootBackend-main",
     "list.type.of.created.stylesheet": "CSS",
@@ -109,11 +110,14 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "MavenSettings",
+    "settings.editor.selected.configurable": "File.Encoding",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.animeapi.service" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\smoke\Desktop\java\JavaProject" />
       <recent name="C:\Users\smoke\Desktop\java\JavaProject\.idea" />
@@ -160,7 +164,9 @@
       <workItem from="1743355221644" duration="1660000" />
       <workItem from="1743939742379" duration="600000" />
       <workItem from="1744544801603" duration="4481000" />
-      <workItem from="1745245712820" duration="5329000" />
+      <workItem from="1745245712820" duration="5582000" />
+      <workItem from="1745415517466" duration="2190000" />
+      <workItem from="1745505089170" duration="6888000" />
     </task>
     <task id="LOCAL-00001" summary="Dev -2">
       <option name="closed" value="true" />
@@ -178,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743356359289</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="DEMO LOGIN SIGNIN(not tested)">
+      <option name="closed" value="true" />
+      <created>1745253764392</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745253764392</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +212,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Dev -2" />
     <MESSAGE value="full favorite" />
-    <option name="LAST_COMMIT_MESSAGE" value="full favorite" />
+    <MESSAGE value="DEMO LOGIN SIGNIN(not tested)" />
+    <option name="LAST_COMMIT_MESSAGE" value="DEMO LOGIN SIGNIN(not tested)" />
   </component>
 </project>

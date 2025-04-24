@@ -1,4 +1,4 @@
-package org.animeapi.security;
+package org.animeapi.config;
 
 import org.animeapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
