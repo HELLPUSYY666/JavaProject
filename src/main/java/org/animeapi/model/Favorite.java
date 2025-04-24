@@ -1,4 +1,3 @@
-// Favorite Model
 package org.animeapi.model;
 
 import jakarta.persistence.*;
@@ -14,7 +13,7 @@ public class Favorite {
     @Id
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private MyUser myUser;
+    private MyUser user;
 
     @Id
     @ManyToOne

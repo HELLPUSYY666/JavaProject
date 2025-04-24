@@ -1,65 +1,59 @@
 package org.animeapi.config;
 
-import org.animeapi.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.animeapi.service.AuthenticationService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-
-
-import lombok.AllArgsConstructor;
-
 @Configuration
-@AllArgsConstructor
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Autowired
-    private final UserService userService;
+    private final AuthenticationService authenticationService;
 
-
-    @Bean
-    public UserDetailsService userDetailsService(){
-        return userService;
+    public SecurityConfig(AuthenticationService authenticationService) {
+        this.authenticationService = authenticationService;
     }
 
     @Bean
-    public AuthenticationProvider authenticationProvider(){
+    public UserDetailsService userDetailsService() {
+        return authenticationService;
+    }
+
+    @Bean
+    public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(userService);
+        provider.setUserDetailsService(authenticationService);
         provider.setPasswordEncoder(passwordEncoder());
         return provider;
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
-                .csrf(AbstractHttpConfigurer::disable)
-                .formLogin(httpForm ->{
+                .csrf(csrf -> csrf.disable())
+                .formLogin(httpForm -> {
                     httpForm.loginPage("/req/login").permitAll();
                     httpForm.defaultSuccessUrl("/index");
-
                 })
-
-
-                .authorizeHttpRequests(registry ->{
+                .authorizeRequests(registry -> {
                     registry.requestMatchers("/req/signup", "/static/css/**", "/static/css/js/**").permitAll();
                     registry.anyRequest().authenticated();
                 })
                 .build();
     }
+
 }
