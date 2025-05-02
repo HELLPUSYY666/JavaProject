@@ -4,33 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="904415ab-039a-4b94-b428-b96b71d32a2b" name="Changes" comment="Dev -2">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/config/MessageConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/config/SecurityConfig.java" afterDir="false" />
+    <list default="true" id="904415ab-039a-4b94-b428-b96b71d32a2b" name="Changes" comment="first commit">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/AnimeApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/AnimeApiApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/controller/AnimeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/controller/CommentController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/controller/FavoriteController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/model/Anime.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/model/Comment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/model/Favorite.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/model/FavoriteId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/parser/AnimeParserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/repository/AnimeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/repository/CommentRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/repository/FavoriteRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/service/AnimeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/service/CommentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/service/FavoriteService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/animeapi/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/animeapi/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V2__extend_fields.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/animeapi/AnimeApiApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/animeapi/AnimeApiApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/animeapi/controller/AnimeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/animeapi/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/animeapi/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/animeapi/model/Anime.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/animeapi/model/Anime.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/animeapi/model/Comment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/animeapi/model/Favorite.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/animeapi/model/FavoriteId.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/animeapi/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/animeapi/repository/CommentRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/animeapi/repository/FavoriteRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/animeapi/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/animeapi/repository/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/animeapi/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/animeapi/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +82,10 @@
     "repository": "JavaProject"
   }
 }]]></component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -109,9 +108,9 @@
     "Spring Boot.AnimeApiApplication.executor": "Run",
     "Spring Boot.MangaApiApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "no-parser-logg",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/admin/IdeaProjects/JavaProj/src/main/java/org/animeapi",
+    "last_opened_file_path": "C:/Users/admin/IdeaProjects/JavaProject",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -131,6 +130,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\IdeaProjects\JavaProj\src\main\resources" />
       <recent name="C:\Users\admin\IdeaProjects\JavaProj\src\main\java\org\animeapi" />
       <recent name="C:\Users\smoke\Desktop\java\JavaProject" />
       <recent name="C:\Users\smoke\Desktop\java\JavaProject\.idea" />
@@ -171,7 +171,7 @@
       <workItem from="1743355221644" duration="1660000" />
       <workItem from="1743939742379" duration="600000" />
       <workItem from="1744544801603" duration="4481000" />
-      <workItem from="1746194132272" duration="466000" />
+      <workItem from="1746194132272" duration="8230000" />
     </task>
     <task id="LOCAL-00001" summary="Dev -2">
       <option name="closed" value="true" />
@@ -189,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743356359289</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1746194672507</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1746194672507</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,6 +217,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Dev -2" />
     <MESSAGE value="full favorite" />
-    <option name="LAST_COMMIT_MESSAGE" value="full favorite" />
+    <MESSAGE value="first commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
   </component>
 </project>
