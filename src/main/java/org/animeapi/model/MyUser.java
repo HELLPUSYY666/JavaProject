@@ -2,6 +2,12 @@ package org.animeapi.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.Collections;
 
 @Getter
 @Setter
@@ -29,5 +35,22 @@ public class MyUser {
         this.login = login;
         this.email = email;
         this.password = password;
+    }
+
+    public UserDetails toUserDetails() {
+        return new org.springframework.security.core.userdetails.User(
+                this.login,                     // username (ваше поле login)
+                this.password,                  // пароль
+                true,                           // enabled
+                true,                           // accountNonExpired
+                true,                           // credentialsNonExpired
+                true,                           // accountNonLocked
+                getAuthorities()                // роли/права
+        );
+    }
+
+    private Collection<? extends GrantedAuthority> getAuthorities() {
+        // Пример: роль USER по умолчанию
+        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
     }
 }

@@ -1,69 +1,34 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--  <meta charset="UTF-8">-->
-<!--  <title>Signup Form</title>-->
-<!--  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>-->
-<!--  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>-->
-<!--  <link rel="stylesheet" href="/css/css/style.css">-->
-<!--  <script src="/css/js/signup.js" defer></script>-->
-<!--</head>-->
-<!--<body>-->
-<!--<section>-->
-<!--  <form id="signup-form">-->
-<!--    <h1>Sign Up</h1>-->
-<!--    <div class="inputbox">-->
-<!--      <ion-icon name="person-outline"></ion-icon>-->
-<!--      <input type="text" id="username" name="username" required>-->
-<!--      <label for="">Name</label>-->
-<!--    </div>-->
-<!--    <div class="inputbox">-->
-<!--      <ion-icon name="mail-outline"></ion-icon>-->
-<!--      <input type="email" id="email" name="email" required>-->
-<!--      <label for="">Email</label>-->
-<!--    </div>-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Вход</title>
+</head>
+<body>
+<h2>Вход</h2>
 
-<!--    <div class="inputbox">-->
-<!--      <ion-icon name="lock-closed-outline"></ion-icon>-->
-<!--      <input type="password" id="password" name="password" required>-->
-<!--      <label for="">Password</label>-->
-<!--    </div>-->
-<!--    <div class="inputbox">-->
-<!--      <ion-icon name="lock-closed-outline"></ion-icon>-->
-<!--      <input type="password" id="passwordcon" name="passwordcon" required>-->
-<!--      <label for="">Confirm Password</label>-->
-<!--    </div>-->
-<!--    <button id="submit" type="submit">Sign Up</button>-->
-<!--    <div class="register">-->
-<!--      <p>Already have an account? <a href="">Log In</a></p>-->
-<!--    </div>-->
-<!--  </form>-->
-<!--</section>-->
-<!--</body>-->
-<!--<script>-->
-<!--  // Обработчик отправки формы-->
-<!--  document.getElementById("signup-form").addEventListener('submit', function(e) {-->
-<!--    e.preventDefault(); // Останавливаем стандартную отправку формы-->
+<form th:action="@{/req/login}" method="post">
+    <div>
+        <label>Логин:</label>
+        <input type="text" name="username"/> <!-- Обязательно оставить username -->
+    </div>
+    <div>
+        <label>Пароль:</label>
+        <input type="password" name="password"/>
+    </div>
+    <div>
+        <button type="submit">Войти</button>
+    </div>
+</form>
 
-<!--    // Сбор данных с формы-->
-<!--    const username = document.getElementById('username').value;-->
-<!--    const password = document.getElementById('password').value;-->
-<!--    const confirmPassword = document.getElementById('passwordcon').value;-->
-<!--    const email = document.getElementById('email').value;-->
+<!-- Отображение ошибки входа -->
+<div th:if="${param.error}">
+    <p style="color:red;">Неверный логин или пароль</p>
+</div>
 
-<!--    // Проверка на совпадение паролей-->
-<!--    if (password !== confirmPassword) {-->
-<!--      alert("Passwords do not match");-->
-<!--      return;-->
-<!--    }-->
+<!-- Сообщение об успешном выходе -->
+<div th:if="${param.logout}">
+    <p style="color:green;">Вы вышли из системы</p>
+</div>
 
-<!--    // Создание объекта данных для отправки-->
-<!--    const data = {-->
-<!--      login: username, // Название поля должно быть 'login' в MyUser-->
-<!--      email,-->
-<!--      password-->
-<!--    };-->
-
-<!--    // Отправка данных на сервер-->
-<!--    fetch('/req/signup', {-->
-<!--      method-->
+</body>
+</html>
