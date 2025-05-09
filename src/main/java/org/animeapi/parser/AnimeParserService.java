@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
@@ -22,6 +23,7 @@ import java.util.stream.Collectors;
 public class AnimeParserService {
 
     private final AnimeRepository animeRepository;
+    private final SimpMessagingTemplate messagingTemplate;
 
     public void parseAndSaveTopAnime(int count) {
         WebDriverManager.chromedriver().setup();
@@ -86,7 +88,8 @@ public class AnimeParserService {
                     anime.setPhotoUrl(photoUrl);
 
                     animeRepository.save(anime);
-                    log.info("✔ Сохранили аниме: {}", name);
+                    messagingTemplate.convertAndSend("/topic/animes", anime);
+                    log.info("✔ Сохранили и отправили аниме: {}", name);
                     parsed++;
 
                     detailDriver.quit();
