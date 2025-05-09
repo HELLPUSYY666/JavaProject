@@ -10,7 +10,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-
     private final UserService userService;
 
     public UserController(UserService userService) {
@@ -19,21 +18,21 @@ public class UserController {
 
     @GetMapping
     public List<MyUser> getAllUsers() {
-        return userService.getAllUsers(); // <-- добавлен метод в сервис
+        return userService.getAllUsers();
     }
 
     @GetMapping("/{id}")
     public Optional<MyUser> getUserById(@PathVariable Integer id) {
-        return userService.getUserById(id); // <-- добавлен метод в сервис
+        return userService.getUserById(id);
     }
 
     @PostMapping
-    public MyUser createUser(@RequestBody MyUser myUser) {
-        return userService.saveUser(myUser); // <-- используем сервис
-    }
+    public MyUser createUser(@RequestBody MyUser user) {
+        return userService.saveUser(user);}
 
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Integer id) {
-        userService.deleteUser(id); // <-- добавлен метод в сервис
+        userService.deleteUser(id);
+
     }
 }
