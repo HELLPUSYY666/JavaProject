@@ -1,6 +1,6 @@
 package org.animeapi.service;
 
-import org.animeapi.model.User;
+import org.animeapi.model.MyUser;
 import org.animeapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
