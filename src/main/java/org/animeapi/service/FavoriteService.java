@@ -2,7 +2,7 @@ package org.animeapi.service;
 
 import org.animeapi.model.Anime;
 import org.animeapi.model.Favorite;
-import org.animeapi.model.User;
+import org.animeapi.model.MyUser;
 import org.animeapi.repository.AnimeRepository;
 import org.animeapi.repository.FavoriteRepository;
 import org.animeapi.repository.UserRepository;
@@ -25,7 +25,7 @@ public class FavoriteService {
     }
 
     public Favorite addFavorite(Integer userId, Integer animeId) {
-        User user = userRepository.findById(userId).orElseThrow();
+        MyUser user = userRepository.findById(userId).orElseThrow();
         Anime anime = animeRepository.findById(animeId).orElseThrow();
 
         Favorite favorite = new Favorite(user, anime);
@@ -47,4 +47,3 @@ public class FavoriteService {
                 .collect(Collectors.toList());
     }
 }
-

@@ -1,4 +1,3 @@
-// Comment Model
 package org.animeapi.model;
 
 import jakarta.persistence.*;
@@ -16,7 +15,7 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private MyUser user;
 
     @ManyToOne
     @JoinColumn(name = "anime_id", nullable = false)

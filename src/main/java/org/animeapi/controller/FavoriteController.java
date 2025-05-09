@@ -38,4 +38,3 @@ public class FavoriteController {
         return favoriteService.isFavorite(userId, animeId);
     }
 }
-

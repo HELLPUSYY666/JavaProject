@@ -14,4 +14,3 @@ public interface FavoriteRepository extends JpaRepository<Favorite, FavoriteId> 
 
     boolean existsByUser_UserIdAndAnime_AnimeId(Integer userId, Integer animeId);
 }
-

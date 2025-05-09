@@ -1,4 +1,3 @@
-// FavoriteId for Composite Key
 package org.animeapi.model;
 
 import lombok.*;

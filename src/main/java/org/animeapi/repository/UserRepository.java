@@ -1,19 +1,19 @@
 package org.animeapi.repository;
 
-// User Repository
-
-import org.animeapi.model.User;
+import org.animeapi.model.MyUser;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-
+import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<User, Integer> {
-    @Query("SELECT u FROM User u")
-    List<User> findAllUsers();
+@Repository
+public interface UserRepository extends JpaRepository<MyUser, Integer> {
 
-    @Query("SELECT u FROM User u WHERE u.userId = :id")
-    Optional<User> findUserById(@Param("id") Integer id);
+    List<MyUser> findAll();
+
+    Optional<MyUser> findUserByLogin(String login);
+
+    Optional<MyUser> getMyUserByUserId(Integer id);
+
+    MyUser findUserByEmail(String email);
 }

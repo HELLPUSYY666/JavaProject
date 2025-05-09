@@ -1,0 +1,3 @@
+ALTER TABLE anime
+ALTER COLUMN anime_name TYPE VARCHAR(255),
+    ALTER COLUMN anime_genre TYPE VARCHAR(255);
