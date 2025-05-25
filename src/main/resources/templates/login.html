@@ -1,34 +1,55 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Вход</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<h2>Вход</h2>
 
-<form th:action="@{/req/login}" method="post">
-    <div>
-        <label>Логин:</label>
-        <input type="text" name="username"/> <!-- Обязательно оставить username -->
+<div th:class="container">
+    <div th:class="form-box" th:id="login-form">
+        <form th:action="@{/req/login}" method="post">
+            <h2>Login</h2>
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="submit" id="submit" name="login">Login</button>
+            <p>Don't have an account? <a href="/req/signup" >Sign up</a></p>
+        </form>
     </div>
-    <div>
-        <label>Пароль:</label>
-        <input type="password" name="password"/>
-    </div>
-    <div>
-        <button type="submit">Войти</button>
-    </div>
-</form>
-
-<!-- Отображение ошибки входа -->
-<div th:if="${param.error}">
-    <p style="color:red;">Неверный логин или пароль</p>
 </div>
-
-<!-- Сообщение об успешном выходе -->
-<div th:if="${param.logout}">
-    <p style="color:green;">Вы вышли из системы</p>
-</div>
-
 </body>
+
+<script>
+    document.getElementById("login-form").addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const login = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        const data = {
+            login: login,
+            password: password
+        };
+
+        fetch('/req/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = '/index';
+                } else {
+                    window.location.href = '/index';
+                }
+            })
+            .catch(error => {
+                window.location.href = '/index';
+            });
+    });
+
+</script>
 </html>

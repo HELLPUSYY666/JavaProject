@@ -21,6 +21,6 @@ public class AnimeApiApplication {
 
     @PostConstruct
     public void init() {
-        animeParserService.parseAndSaveTopAnime(10); // Парсит 10 аниме при старте
+        animeParserService.parseAndSaveTopAnime(1);
     }
 }

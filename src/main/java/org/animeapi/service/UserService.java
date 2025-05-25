@@ -2,15 +2,14 @@ package org.animeapi.service;
 
 import lombok.AllArgsConstructor;
 import org.animeapi.model.MyUser;
+import org.animeapi.password.PasswordEncoder;
 import org.animeapi.repository.PasswordTokenRepository;
 import org.animeapi.repository.UserRepository;
 import org.animeapi.token.PasswordResetToken;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,57 +19,44 @@ import java.util.UUID;
 @Service
 @AllArgsConstructor
 public class UserService implements UserDetailsService {
+    public static final String USER_NOT_FOUND_MSG = "User with email %s not found";
 
-    @Autowired
     private final UserRepository userRepository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-    @Autowired
-    private PasswordTokenRepository passwordTokenRepository;
+
+    private final BCryptPasswordEncoder passwordEncoder;
+
+    private final PasswordTokenRepository passwordTokenRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        Optional<MyUser> user = userRepository.findUserByLogin(login);
-        if (user.isPresent()) {
-            var userObj = user.get();
-            return User.builder()
-                    .username(userObj.getLogin())
-                    .password(userObj.getPassword())
-                    .build();
-        } else {
-            throw new UsernameNotFoundException(login);
-        }
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return userRepository.findUserByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
     }
 
     public void createPasswordResetTokenForUser(MyUser user, String token) {
-        // Генерация уникального токена, если не передан
         if (token == null || token.isEmpty()) {
-            token = UUID.randomUUID().toString(); // Генерация уникального токена
+            token = UUID.randomUUID().toString();
         }
-
-        // Создание объекта токена
         PasswordResetToken passwordResetToken = new PasswordResetToken(token, user);
-
-        // Сохранение токена в базе данных
         passwordTokenRepository.save(passwordResetToken);
     }
 
     public List<MyUser> getAllUsers() {
-        return userRepository.findAll(); // <-- добавлен метод
+        return userRepository.findAll();
     }
 
     public Optional<MyUser> getUserById(Integer id) {
-        return userRepository.getMyUserByUserId(id); // <-- добавлен метод
+        return userRepository.getMyUserByUserId(id);
     }
 
     public void deleteUser(Integer id) {
-        userRepository.deleteById(id); // <-- добавлен метод
+        userRepository.deleteById(id);
     }
 
     public MyUser saveUser(MyUser user) {
-        return userRepository.save(user); // <-- метод сохранения пользователя
+        return userRepository.save(user);
     }
-    public MyUser findUserByEmail(String email) {
+    public Optional<MyUser> findUserByEmail(String email) {
         return userRepository.findUserByEmail(email);
     }
 
@@ -81,14 +67,10 @@ public class UserService implements UserDetailsService {
     }
 
     public Optional<MyUser> getUserByPasswordResetToken(String token) {
-        // Находим токен сброса пароля по предоставленному значению
         PasswordResetToken resetToken = passwordTokenRepository.findByToken(token);
-
-        // Если токен найден, возвращаем связанного с ним пользователя
         if (resetToken != null) {
             return Optional.of(resetToken.getUser());
         } else {
-            // Если токен не найден, возвращаем пустой Optional
             return Optional.empty();
         }
     }

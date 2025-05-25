@@ -16,14 +16,14 @@ import java.util.Collections;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MyUser {
+public class MyUser implements UserDetails{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
 
     @Column(nullable = false, length = 50)
-    private String login; // <-- поле login, а не username
+    private String login;
 
     @Column(nullable = false, unique = true, length = 50)
     private String email;
@@ -39,18 +39,71 @@ public class MyUser {
 
     public UserDetails toUserDetails() {
         return new org.springframework.security.core.userdetails.User(
-                this.login,                     // username (ваше поле login)
-                this.password,                  // пароль
-                true,                           // enabled
-                true,                           // accountNonExpired
-                true,                           // credentialsNonExpired
-                true,                           // accountNonLocked
-                getAuthorities()                // роли/права
+                this.login,
+                this.password,
+                true,
+                true,
+                true,
+                true,
+                getAuthorities()
         );
     }
 
-    private Collection<? extends GrantedAuthority> getAuthorities() {
-        // Пример: роль USER по умолчанию
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String getUsername() {
+        return login;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

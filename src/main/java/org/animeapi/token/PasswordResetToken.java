@@ -11,7 +11,7 @@ public class PasswordResetToken {
 
     private static final int EXPIRATION = 60 * 24;
 
-    boolean expired; // вернёт true
+    boolean expired;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,10 +38,8 @@ public class PasswordResetToken {
         return new Date(cal.getTime().getTime());
     }
 
-
     public PasswordResetToken() {
     }
-
 
     public Long getId() {
         return id;

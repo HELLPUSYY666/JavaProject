@@ -2,9 +2,9 @@ package org.animeapi.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
-import org.animeapi.customerror.UserNotFoundException;
 import org.animeapi.dto.PasswordDto;
 import org.animeapi.model.MyUser;
+import org.animeapi.repository.UserRepository;
 import org.animeapi.response.GenericResponse;
 import org.animeapi.service.EmailService;
 import org.animeapi.service.SecurityService;
@@ -13,19 +13,16 @@ import org.springframework.context.MessageSource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Locale;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Controller
 public class PageController {
     private final SecurityService securityService;
     private JavaMailSender mailSender;
     private final UserService userService;
+    private UserRepository userRepository;
     private EmailService emailService;
     private MessageSource messageSource;
 
@@ -33,7 +30,6 @@ public class PageController {
         StringBuffer url = request.getRequestURL();
         return url.substring(0, url.indexOf(request.getRequestURI()));
     }
-
 
     public PageController(UserService userService, SecurityService securityService) {
         this.userService = userService;
@@ -49,25 +45,22 @@ public class PageController {
     public String signup(){
         return "signup";
     }
+
+    @PostMapping("/req/signup")
+    public String registerUser(MyUser user) {
+        userRepository.save(user);
+        return "redirect:/index";
+    }
+
+    @PostMapping("/req/login")
+    public String enterIndex(MyUser user){
+        userRepository.findUserByEmail(user.getEmail());
+        return "redirect:/index";
+    }
+
     @GetMapping("/index")
     public String home(){
         return "index";
-    }
-
-    @PostMapping("/user/resetPassword")
-    public GenericResponse resetPassword(HttpServletRequest request,
-                                         @RequestParam("email") String userEmail) {
-        MyUser user = userService.findUserByEmail(userEmail);
-        if (user.getUserId() == null) {
-            throw new UserNotFoundException();
-        }
-        String token = UUID.randomUUID().toString();
-        userService.createPasswordResetTokenForUser(user, token);
-        mailSender.send(emailService.constructResetTokenEmail(getAppUrl(request),
-                request.getLocale(), token, user));
-        return new GenericResponse(
-                messageSource.getMessage("message.resetPasswordEmail", null,
-                        request.getLocale()));
     }
 
     @GetMapping("/user/changePassword")

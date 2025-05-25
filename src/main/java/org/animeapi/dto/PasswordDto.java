@@ -10,11 +10,8 @@ public class PasswordDto {
 
     @NotEmpty(message = "New password is required")
     private String newPassword;
-
-    // (опционально) подтверждение пароля
     private String confirmPassword;
 
-    // Getters and Setters
     public String getToken() {
         return token;
     }
